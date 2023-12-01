@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Welcome to Higher or Lower";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Higher or Lower</h1>
+    
+    @if (Model.IsGameOver != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            Game over! You guessed wrong. Play again?
+        </div> 
+    }
+
+    <div class="padding50">
+        <a asp-page="./game" class="btn btn-success">Start New Game</a>
+    </div>
+</div>

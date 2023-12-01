@@ -1,0 +1,32 @@
+﻿@page
+@model Game_HigherOrLower.Pages.GameModel
+@{
+    ViewData["Title"] = "You are now playing 'Higher or Lower'";
+}
+
+<div id="gameHolder">
+    <div id="cardHolder">
+        <form method="post">
+            @Html.HiddenFor(m => m.IsGameOver)
+            @Html.HiddenFor(m => m.Number)
+
+            @if (Model.IsGameOver)
+            {
+                <div class="alert alert-success" role="alert">
+                    Game over! Play again?
+                </div>
+            }
+            else
+            {
+                <div id="number">
+                    @Model.Number
+                </div>
+
+                <div id="controls" class="padding50">
+                    <input id="guessHigher" class="btn btn-success" type="submit" value="Higher" asp-page-handler="Higher" />
+                    <input id="guessLower" class="btn btn-primary" type="submit" value="Lower" asp-page-handler="Lower" />
+                </div>
+            }
+        </form>
+    </div>
+</div>
